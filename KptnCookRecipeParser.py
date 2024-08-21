@@ -10,7 +10,7 @@ class InputFileHandler:
             self.raw_content = self.__readCompleteFileContent(inputFile)
 
     def __readCompleteFileContent(self, fileHandler):
-        return fileHandler.readlines()
+        return fileHandler.read()
     
     def getCompleteFileContent(self):
         return self.raw_content
