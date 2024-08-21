@@ -24,7 +24,7 @@ class InputFileHandler:
             self.rawContent = self.__readCompleteFileContent(inputFile)
 
     def __readCompleteFileContent(self, fileHandler):
-        return fileHandler.readlines()
+        return fileHandler.read()
     
     def getCompleteFileContent(self):
         return self.rawContent
