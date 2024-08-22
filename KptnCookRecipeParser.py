@@ -2,7 +2,7 @@ import json
 
 class KptnCookCollectionObject:
     rawJSONString = None
-    collectionJSONObject = None
+    recipeCollectionList = None
 
     def __init__(self,rawJSONString=None):
        self.setRawJSONString(rawJSONString)
@@ -11,7 +11,7 @@ class KptnCookCollectionObject:
        self.rawJSONString = inputRecipeJSONString
 
     def convertRawStringToJSONObject(self):
-        self.collectionJSONObject = json.loads(self.rawJSONString)
+        self.recipeCollectionList = json.loads(self.rawJSONString)
 
 
 class InputFileHandler:
