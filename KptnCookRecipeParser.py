@@ -1,16 +1,38 @@
 import json
+import pygrocy
+
+class KptnCookCollectionObject:
+    rawJSONString = None
+    recipeCollectionList = None
+
+    def __init__(self,rawJSONString=None):
+       self.setRawJSONString(rawJSONString)
+    
+    def setRawJSONString(self,inputRecipeJSONString):
+       self.rawJSONString = inputRecipeJSONString
+
+    def convertRawStringToJSONObject(self):
+        self.recipeCollectionList = json.loads(self.rawJSONString)
+
 
 class InputFileHandler:
     filename = ""
-    raw_content = ""
+    rawContent = ""
 
-    def ___init___(self, filename = ""):
+    def __init__(self, filename = ""):
         self.filename = filename
         with open(self.filename,"r") as inputFile:
-            self.raw_content = self.__readCompleteFileContent(inputFile)
+            self.rawContent = self.__readCompleteFileContent(inputFile)
 
     def __readCompleteFileContent(self, fileHandler):
         return fileHandler.read()
     
     def getCompleteFileContent(self):
-        return self.raw_content
+        return self.rawContent
+    
+
+if __name__ == "__main__":
+    inputFileHandler = InputFileHandler("kptncook_1.json")
+    kptnCookCollecction = KptnCookCollectionObject(inputFileHandler.getCompleteFileContent())
+    kptnCookCollecction.convertRawStringToJSONObject()
+    pass
